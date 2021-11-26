@@ -62,18 +62,15 @@
                                 @Html.ValidationMessageFor(model => model.PhysicalLocation, "", new { @class = "text-danger" })
                             </div>
                         </div>
-
-
-
                     </div>
                 </div>
                 <div class="tile-footer">
                     <div class="row">
                         <div class="col-md-8 col-md-offset-3 pull-left">
-                            <a href="#modal-dialog" class="btn btn-primary" data-toggle="modal" data-modal-type="confirm">
+                            @*<a href="#modal-dialog" class="btn btn-primary" data-toggle="modal" data-modal-type="confirm">
                                 <i class="fa fa-fw fa-lg fa-check-circle"></i> Save
-                            </a>
-                            @*<button class="btn btn-primary" onclick="return confirm('Are sure wants to Create the user?');">Create user</button>*@
+                            </a>*@
+                            <button class="btn btn-primary" onclick="return confirm('Are sure wants to Create the user?');">Save</button>
                             &nbsp;&nbsp;&nbsp;
                             <button type="reset" class="btn btn-secondary"><i class="fa fa-fw fa-lg fa-times-circle"></i>Clear fields</button>
                         </div>

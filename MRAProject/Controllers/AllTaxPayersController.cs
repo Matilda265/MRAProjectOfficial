@@ -50,7 +50,7 @@ namespace MRAProject.Controllers
                 try
                 {
                     IRestPostRequestWithBasicAunthentication restPostRequest = new RestPostRequest();
-                    IRestResponse response = restPostRequest.PostRequestWithBasicAunthentication(Session["email"].ToString(), Session["password"].ToString(), ApiUrlLink.GetUrl(), "Taxpayers/getAll", approvalUserModel);
+                    IRestResponse response = restPostRequest.PostRequestWithBasicAunthentication(Session["email"].ToString(), Session["password"].ToString(), ApiUrlLink.GetUrl(), "Taxpayers/add", approvalUserModel);
                     var content = response.Content;
                     GeneralResponseModel responseModel = JsonConvert.DeserializeObject<GeneralResponseModel>(content);
 
