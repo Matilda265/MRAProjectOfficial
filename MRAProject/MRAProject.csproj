@@ -156,6 +156,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AllTaxPayersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Global.asax.cs">
@@ -163,8 +164,10 @@
     </Compile>
     <Compile Include="Models\ApiUrlLink.cs" />
     <Compile Include="Models\Enums\SystemMessageCode.cs" />
+    <Compile Include="Models\Enums\TaxpayerModel.cs" />
     <Compile Include="Models\GeneralResponseModel.cs" />
     <Compile Include="Models\LoginRequestModel.cs" />
+    <Compile Include="Models\TaxPayers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -355,6 +358,9 @@
     <Content Include="fonts\dashboard.eot" />
     <Content Include="fonts\dashboard.ttf" />
     <Content Include="fonts\dashboard.woff" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\AllTaxPayers\AllTaxPayers.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
