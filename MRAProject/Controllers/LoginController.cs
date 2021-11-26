@@ -30,14 +30,14 @@ namespace MRAProject.Controllers
                 {
                     IRestPostRequestWithBasicAunthentication restResponseRequest = new RestPostRequest();
                     IRestResponse response = restResponseRequest.PostRequestWithBasicAunthentication(Session["username"].ToString(), Session["password"].ToString(), ApiUrlLink.GetUrl(),
-                        "api/users/nitel-users/request-user-creation", loginRequestModel);
+                        "auth/login", loginRequestModel);
                     var content = response.Content;
                     GeneralResponseModel responseUserModel = JsonConvert.DeserializeObject<GeneralResponseModel>(content);
 
                     if (responseUserModel.messageCode == (int)SystemMessageCode.Success)
                     {
                         Session["systemNotification"] = responseUserModel.description;
-                        return RedirectToAction("Allusers", "NitelUserRepository");
+                        return RedirectToAction("AllTaxPayers", "AllTaxPayers");
                     }
 
                     ViewBag.Error = responseUserModel.description;
@@ -45,7 +45,7 @@ namespace MRAProject.Controllers
                 }
                 catch (Exception ex)
                 {
-                    ViewBag.Error = "Failed to add the new User. Please contact the system administrator for assistance.";
+                    ViewBag.Error = "Failed to Login. Please contact the system administrator for assistance.";
                     
                     return View("AllTaxPayers","AllTaxPayers");
                 }
