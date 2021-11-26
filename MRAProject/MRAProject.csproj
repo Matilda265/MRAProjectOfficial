@@ -164,9 +164,10 @@
     </Compile>
     <Compile Include="Models\ApiUrlLink.cs" />
     <Compile Include="Models\Enums\SystemMessageCode.cs" />
-    <Compile Include="Models\Enums\TaxpayerModel.cs" />
+    <Compile Include="Models\AllTaxpayerModel.cs" />
     <Compile Include="Models\GeneralResponseModel.cs" />
     <Compile Include="Models\LoginRequestModel.cs" />
+    <Compile Include="Models\RequestModels\TaxpayerRequestModel.cs" />
     <Compile Include="Models\TaxPayers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
