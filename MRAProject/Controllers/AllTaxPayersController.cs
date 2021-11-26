@@ -43,5 +43,35 @@ namespace MRAProject.Controllers
             }
             return RedirectToAction("Login", "Login");
         }
+        public ActionResult AddTaxPayers(AddTaxpayerModel approvalUserModel)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    IRestPostRequestWithBasicAunthentication restPostRequest = new RestPostRequest();
+                    IRestResponse response = restPostRequest.PostRequestWithBasicAunthentication(Session["email"].ToString(), Session["password"].ToString(), ApiUrlLink.GetUrl(), "Taxpayers/getAll", approvalUserModel);
+                    var content = response.Content;
+                    GeneralResponseModel responseModel = JsonConvert.DeserializeObject<GeneralResponseModel>(content);
+
+                    if (responseModel.messageCode == (int)SystemMessageCode.Success)
+                    {
+                        Session["systemNotification"] = responseModel.description;
+                        return RedirectToAction("AddTaxPayers","AllTaxPayers");
+                    }
+
+                    ViewBag.Error = responseModel.description;
+                    return View(approvalUserModel);
+                }
+                catch (Exception ex)
+                {
+                    
+                    ViewBag.Error = "Failed to add the new Tax payer. Please contact the system administrator for assistance.";
+                   
+                }
+            }
+            return RedirectToAction("Login", "Login");
+        }
+    
     }
 }

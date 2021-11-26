@@ -1,0 +1,89 @@
+﻿@model MRAProject.Models.AddTaxpayerModel
+@{
+    ViewBag.Title = "AddTaxPayers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="tile">
+                <h3 class="tile-title">Tax Payer Details</h3>
+                <div class="tile-body">
+                    <p class="text-danger">@Html.Raw(ViewBag.Error)</p>
+                    <div class="form-horizontal">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @Html.HiddenFor(model => model.Email)
+                        @Html.HiddenFor(model => model.Username)
+
+                        <div class="form-group row">
+                            @Html.LabelFor(model => model.TPIN, htmlAttributes: new { @class = "control-label col-md-3" })
+                            <div class="col-md-6">
+                                @Html.EditorFor(model => model.TPIN, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.TPIN, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            @Html.LabelFor(model => model.BusinessCertificateNumber, htmlAttributes: new { @class = "control-label col-md-3" })
+                            <div class="col-md-6">
+                                @Html.EditorFor(model => model.BusinessCertificateNumber, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.BusinessCertificateNumber, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            @Html.LabelFor(model => model.BusinessRegistrationDate, htmlAttributes: new { @class = "control-label col-md-3" })
+                            <div class="col-md-6">
+                                @Html.EditorFor(model => model.BusinessRegistrationDate, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.BusinessRegistrationDate, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            @Html.LabelFor(model => model.TradingName, htmlAttributes: new { @class = "control-label col-md-3" })
+                            <div class="col-md-6">
+                                @Html.EditorFor(model => model.TradingName, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.TradingName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            @Html.LabelFor(model => model.MobileNumber, htmlAttributes: new { @class = "control-label col-md-3" })
+                            <div class="col-md-6">
+                                @Html.EditorFor(model => model.MobileNumber, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.MobileNumber, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            @Html.LabelFor(model => model.PhysicalLocation, htmlAttributes: new { @class = "control-label col-md-3" })
+                            <div class="col-md-6">
+                                @Html.EditorFor(model => model.PhysicalLocation, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.PhysicalLocation, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+                <div class="tile-footer">
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-3 pull-left">
+                            <a href="#modal-dialog" class="btn btn-primary" data-toggle="modal" data-modal-type="confirm">
+                                <i class="fa fa-fw fa-lg fa-check-circle"></i> Save
+                            </a>
+                            @*<button class="btn btn-primary" onclick="return confirm('Are sure wants to Create the user?');">Create user</button>*@
+                            &nbsp;&nbsp;&nbsp;
+                            <button type="reset" class="btn btn-secondary"><i class="fa fa-fw fa-lg fa-times-circle"></i>Clear fields</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+
+
