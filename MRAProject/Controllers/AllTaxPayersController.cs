@@ -1,4 +1,6 @@
-﻿using MRAProject.APIs.Classes.Post;
+﻿using MRAProject.APIs.Classes.Get;
+using MRAProject.APIs.Classes.Post;
+using MRAProject.APIs.Interfaces.Get;
 using MRAProject.APIs.Interfaces.Post;
 using MRAProject.Models;
 using MRAProject.Models.Enums;
@@ -21,8 +23,8 @@ namespace MRAProject.Controllers
             try
             {
                 approvalUserModel.Email = Convert.ToString(Session["email"]);
-                IRestPostRequestWithBasicAunthentication restPostRequest = new RestPostRequest();
-                IRestResponse response = restPostRequest.PostRequestWithBasicAunthentication(Session["username"].ToString(), Session["password"].ToString(), ApiUrlLink.GetUrl(), "Taxpayers/getAll", approvalUserModel);
+                IRestGetRequestWithBasicAunthentication restPostRequest = new RestGetRequest();
+                IRestResponse response = restPostRequest.GetRequestWithBasicAunthentication(Session["email"].ToString(), Session["password"].ToString(), ApiUrlLink.GetUrl(), "Taxpayers/getAll", approvalUserModel);
                 var content = response.Content;
                 GeneralResponseModel responseUserModel = JsonConvert.DeserializeObject<GeneralResponseModel>(content);
                 if (responseUserModel.messageCode == (int)SystemMessageCode.Success)
